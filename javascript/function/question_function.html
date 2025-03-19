@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h3>Qs1. Write a JavaScript function that returns array elements larger than a number. :-largethannumber(num,arr) </h3>
+   <h3> Qs2. Write a JavaScript function to extract unique characters from a string. 
+        Example: str = “abcdabcdefgggh” ans = “abcdefgh” :- uniqestring(str)</h3>    
+      <h3>Qs3. Write a JavaScript function that accepts a list of country names as input and 
+        returns the longest country name as output. 
+        Example : country = ["Australia", "Germany", "United States of America"] output : 
+        "United States of America" :- longestcountryname()</h3>  
+      <h3>  Qs4. Write a JavaScript function to count the number of vowels in a String 
+        argument. :- vowel()</h3>
+       <h3>Qs5. Write a JavaScript function to generate a random number within a range 
+        (start, end).:- random(s,e)</h3>
+    <script>
+let num=10
+let arr=[15,8,7,56,3,12]
+function largethannumber(num,arr)
+{
+    let result=[];
+    for(let i=0;i<arr.length;i++)
+{
+    if(arr[i]>num)
+{
+    // console.log(arr[i])
+    result.push(arr[i])
+}
+}
+return result
+}
+str="abcdabcdefgggh"
+let uniqestring=function(str)
+{
+    let ans="";
+    for(let i=0;i<str.length;i++)
+{
+    let uni=str[i]
+    if(ans.indexOf(uni)==-1)
+{
+    ans+=uni
+}
+}
+return ans;
+}
+longestcountryname=function()
+{
+let c=[]
+let n=prompt("enter number of country")
+let low="";
+  for(let i=0;i<n;i++)
+  {
+     country=prompt(`Enter ${i+1} country name:`)
+     c.push(country)
+        if(country.length>low.length)
+        {
+            low=country
+        }
+  }
+  console.log(low)
+}
+   
+function vowel()
+{
+    let str1=""
+    let count=0
+    str1=prompt("enter your name")
+    for(let i=0;i<str1.length;i++)
+{
+    if(str1[i]=="a" || str1[i]=="e" || str1[i]=="i" || str1[i]=="o" || str1[i]=="u")
+{
+    count++;
+}
+}
+console.log("in your name the number of vowel is:-",count)
+}
+
+function random(s,e)
+{
+let r=Math.floor(Math.random()*(e-s+1))+s
+console.log(r)
+}
+
+    </script>
+</body>
+</html>

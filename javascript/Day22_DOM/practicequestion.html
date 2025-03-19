@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Queastion</title>
+</head>
+<body>
+    <!-- Practice Questions 
+Qsl. Create a new input and button element on the page using JavaScript only. Set the  
+text of button to "Click me' 
+Qs2. Add following attributes to the element : 
+Change placeholder value of input to "username" 
+Change the id of button to "btn' 
+Qs3. Access the btn using the querySelector and button id. Change the button background 
+color to blue and text color to white. 
+Qs4. Create an hl element on the page and set its text to "DOM Practice" underlined. 
+Change its color to purple. 
+Qs5. Create a p tag on the page and set its text to "Apna College Delta Practice", 
+where Delta is bold. -->
+<script>
+    let body=document.querySelector('body');
+    let input=document.createElement('input');
+    let btn=document.createElement("button");
+    btn.innerText="click me";
+    body.insertAdjacentElement("afterbegin",input);
+    input.insertAdjacentElement("afterend",btn);
+
+    input.placeholder="username";
+    btn.id="btn";
+
+    let change=document.querySelector('#btn');
+    change.style.backgroundColor="blue";
+    change.style.color="white";
+
+    let h1=document.createElement("h1");
+    h1.innerText="This is Form";
+    let u=document.createElement('u');
+    body.insertAdjacentElement("afterbegin",u);
+    u.insertAdjacentElement("afterbegin",h1);
+    h1.style.color="purple";
+
+
+    let p=document.createElement('p');
+    p.innerHTML="HI, i am <b>Paresh Patil!</b>";
+    body.insertAdjacentElement("beforeend",p);
+
+
+    const url = 'https://weather-api180.p.rapidapi.com/weather/weather/health-check';
+const options = {
+	method: 'GET',
+	headers: {
+		'x-rapidapi-key': 'e5d668395cmsh44f1f4453f03f79p12173ajsn9423036fcbdb',
+		'x-rapidapi-host': 'weather-api180.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
+    
+</script>
+</body>
+</html>

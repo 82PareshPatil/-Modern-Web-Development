@@ -1,0 +1,41 @@
+body{
+    text-align: center;
+}
+.but1{
+    height: 150px;
+    width: 150px;
+    border: 5px solid black;
+    border-radius: 15px;
+    margin: 15px;
+}
+.colbut{
+    display: flex;
+    justify-content: center;
+}
+.one{
+background-color: #DC143C;
+}
+/* .one:hover{
+    background-color: #dc143cb8;
+} */
+.two{
+background-color: #39FF14;
+}
+/* .two:hover{
+    background-color: #37ff14a9;
+} */
+.three{
+background-color: #0074D9;
+}
+/* .three:hover{
+    background-color: #0074d99d;
+} */
+.four{
+background-color: #FFD700;
+}
+/* .four:hover{
+    background-color: #ffd90094;
+} */
+.flash{
+    background-color: white;
+}

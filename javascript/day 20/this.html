@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        student = {
+            eng : 45,
+            math : 55,
+            che :56,
+            avg () {
+                avrg=(this.eng +this.math +this.che)/3;
+                console.log(avrg)
+                 
+            }
+        };
+
+
+        //this keyword for function and arrow
+        student = {
+            name:"Paresh",
+            fun : function () 
+            {
+                console.log(this)    //function object
+            },
+            fun2: () =>{
+                console.log(this)    // parent object
+                
+            } ,
+        
+        
+        getInfo1: function () {
+setTimeout (() => {
+console. log(this); //student
+}, 2000);
+        
+},
+getInfo2: function () {
+setTimeout(function () {
+console. log(this);//window
+}, 2000);
+}
+};
+        
+    </script>
+</body>
+</html>

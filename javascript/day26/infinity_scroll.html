@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Scroll Dog Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .dog-img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Infinite Scrolling Random Dog Images</h1>
+    <div class="container" id="imageContainer"></div>
+    
+    <script>
+        const container = document.getElementById("imageContainer");
+
+        async function loadRandomDog() {
+            try {
+                let response = await fetch("https://dog.ceo/api/breeds/image/random");
+                let data = await response.json();
+                let img = document.createElement("img");
+                img.src = data.message;
+                img.classList.add("dog-img");
+                container.appendChild(img);
+            } catch (error) {
+                console.error("Error fetching image:", error);
+            }
+        }
+
+        function loadMoreImages(count=5) {
+            for (let i = 0; i < count; i++) {
+                loadRandomDog();
+            }
+        }
+
+        window.addEventListener("scroll", () => {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+                loadMoreImages(3); // Load 3 images when scrolling near the bottom
+            }
+        });
+
+        loadMoreImages(10); // Load 10 images initially
+    </script>
+</body>
+</html>

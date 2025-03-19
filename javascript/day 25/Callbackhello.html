@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Paresh Patil</h1>
+    <h2>Paresh Patil</h2>
+    <h3>Paresh Patil</h3>
+    <script>
+        //color callback hell
+
+        let h=document.querySelector("h1");
+        function changecolor(clr,d,newcolor)
+        {
+           setTimeout(()=>{
+            h.style.color=clr;
+            if(newcolor) newcolor();
+           },d)
+        }
+        changecolor("red",1000,()=>{
+            changecolor("green",1000,()=>{
+                changecolor("yellow",1000,()=>{
+                    changecolor("blue",1000,()=>{
+                        changecolor("pink",1000);
+                    })
+                })
+            })
+        })
+        //color callback hell solve by promises
+              let k=document.querySelector("h2");
+              function cc(cl,dl)
+              {
+                return new Promise((res,rej)=>{
+                    setTimeout(()=>{
+                 k.style.color=cl;
+              res("color change");
+           },dl)
+                })
+              }
+
+
+              cc("red",1000)
+              .then(()=>{
+                return cc("green",1000)
+              })
+              .then(()=>{
+                return cc("yellow",1000)
+              })
+              .then(()=>{
+                return cc("blue",1000)
+              })
+              .then(()=>{
+                return cc("pink",1000)
+              })
+        //another callback hell
+        function datas(data,s,f)
+        {
+            let n=Math.floor(Math.random()*10);
+            if(n>4)
+        {
+            s();
+        }
+        else{
+            f();
+        }
+        }
+
+        datas("hello paresh",()=>{
+            console.log("Succes: data1 is added");
+            datas("how are you",()=>{
+                console.log("Succes: data2 is added");
+                datas("this msg you get well!",()=>{
+                    console.log("Succes: data3 is added");
+                },()=>{
+                    console.log("failed: data3 was not added"); 
+                })
+            },()=>
+        {
+            console.log("failed: data2 was not added");
+        })
+        },()=>{
+            console.log("failed: data1 was not added");
+        })
+
+
+        //promise to save complexity from callback hell
+        function stdt(da)
+        {
+            return new Promise((resole,reject)=>{
+                let n=Math.floor(Math.random()*10)
+                if(n>4)
+            {
+                resole("succsess: data added");
+            }
+            else{
+                reject("failed:week connection");
+            }
+            });
+            
+        }
+        let result=stdt("hello");
+        result.then((r)=>{
+            console.log("success:",r);
+            console.log("data 1 added");
+            return stdt("hi")
+        })
+        .then((r)=>{
+            console.log("success:",r);
+            console.log("data 2 added");
+            return stdt("third data");
+        })
+        .then((r)=>
+    {
+        console.log("success:",r);
+
+        console.log("data 3 added");
+    })
+        .catch((e)=>{
+            console.log("error:",e);
+         console.log("promise reject");
+        })
+
+
+
+
+        // color change by async and await function
+        let h3=document.querySelector("h3");
+        async function hc(cc){
+            
+         
+             return new Promise((reso,reje)=>{
+                let t=Math.floor(Math.random()*10);
+           if(t>5)
+           {
+            reje();
+           }
+                setTimeout(()=>{
+                    h3.style.color=cc;
+                    reso();
+                },1000)
+             });
+        }
+        async function rest() {
+            try{
+                await hc("green");
+            await hc("blue");
+            await hc("red");
+            await hc("yellow");
+            await hc("pink");
+            }
+            catch(e)
+            {
+                console.log(e);
+            }
+            console.log(5);
+        }
+        rest();
+    </script>
+</body>
+</html>

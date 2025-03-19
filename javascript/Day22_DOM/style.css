@@ -1,0 +1,28 @@
+.image{
+    height: 200px;
+}
+.music{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: brown;
+}
+#audio{
+    padding-top: 15px;
+}
+h1{
+    text-align: center;
+}
+body{
+    padding: 20px;
+}
+a{
+    text-decoration: none;
+}
+.explor{
+   
+}
+.ph{
+    height: 150px;
+    margin: 5px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>click me</button>
+    <h1></h1>
+    <script>
+        let inp=document.querySelector("input");
+        let h=document.querySelector("h1");
+        inp.addEventListener("keydown",function(event){
+            
+         if(event.key=="ArrowUp")
+         {
+            h.innerText="character move up";
+         }
+         else if(event.key=="ArrowDown")
+         {
+            h.innerText="character move back";
+         }
+         else if(event.key=="ArrowLeft")
+         {
+            h.innerText="character move Left";
+         }
+         else if(event.key=="ArrowRight")
+         {
+            h.innerText="character move Right";
+         }
+         else{
+            console.log("character no move");
+         }
+        })
+    </script>
+</body>
+</html>

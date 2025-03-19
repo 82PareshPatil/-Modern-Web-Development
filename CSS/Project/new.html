@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API Example</title>
+</head>
+<body>
+
+    <h2>Weather API Response</h2>
+    <pre id="weather-data">Loading...</pre>
+
+    <script>
+        async function fetchWeather() {
+            const url = 'https://weather-api180.p.rapidapi.com/weather?city=London'; // Change 'London' to your city
+            const options = {
+                method: 'GET',
+                headers: {
+                    'x-rapidapi-key': 'e5d668395cmsh44f1f4453f03f79p12173ajsn9423036fcbdb',
+                    'x-rapidapi-host': 'weather-api180.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const result = await response.json(); // Convert to JSON
+                document.getElementById("weather-data").textContent = JSON.stringify(result, null, 2);
+            } catch (error) {
+                console.error(error);
+                document.getElementById("weather-data").textContent = "Error fetching weather data!";
+            }
+        }
+
+        // Call the function when the page loads
+        fetchWeather();
+    </script>
+
+</body>
+</html>

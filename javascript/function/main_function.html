@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h3>
+        Average Of 3 Number:- avg_3_num(num1,num2,num3)
+    </h3>
+    <h3>
+        Function That create multiplication table of any number:- mul_tab(l)
+    </h3>
+    <h3>
+        Function That return sum of n number:- sum_n_num(k)
+    </h3>
+    <h3>
+        Function That return Concatnation of all string:- concat_string(arr)
+    </h3>
+    <script>
+        function avg_3_num(num1,num2,num3)
+        {
+            let k=(num1+num2+num3)/3
+            console.log(k)
+        }
+        function mul_tab(l)
+        {
+              for(let i=1;i<=10;i++)
+              {
+                  console.log(`${l} * ${i} = ${l*i}`)
+              } 
+        }
+        function sum_n_num(k)
+        {
+            let sum=0;
+            for(let i=1;i<=k;i++)
+            {
+                sum=sum+i
+               
+            }
+            return(sum)
+        }
+  
+        //concatnation of all string
+        arr=["Paresh", " Gorakh", " Patil"]
+
+        function concat_string(arr)
+        {
+            let result =""
+            for(let i=0;i<arr.length;i++)
+        {
+            result+=arr[i]
+        }
+        console.log(result)
+        }
+        
+    </script>
+</body>
+</html>

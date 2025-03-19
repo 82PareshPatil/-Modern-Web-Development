@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function factory(work)
+        {
+            if(work=="odd")
+        {
+            return function(n)
+            {
+                return !(n%2==0)
+            }
+        }
+    
+        else if(work=="even")
+        {
+            return function(n)
+            {
+                return (n%2==0)
+            }
+        }
+        else{
+            return "There is not such a function"
+        }
+        }
+        //Access
+
+// (anonymous) @ VM216:1Understand this errorAI
+// let work ="odd"
+// undefined
+// let fun=factory(work)
+// undefined
+// fun(3)
+// true
+// fun(2)
+// false
+// fun(78)
+// false
+// work="even"
+// 'even'
+// let fun=factory(work)
+// undefined
+// fun(78)
+// true
+      
+    </script>
+</body>
+</html>

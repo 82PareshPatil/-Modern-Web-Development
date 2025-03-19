@@ -1,0 +1,40 @@
+.box div{
+    height: 500px;
+    width: 500px;
+    border: 10px solid black;
+    border-radius: 55px;
+    margin: auto;
+}
+.box1{
+    background-color: green;
+    position: relative;
+    top: 1255px;
+    z-index: 1;
+    
+}
+.box2{
+    background-color: yellow;
+    position: relative;
+    top: 255px;
+}
+.box3{
+    background-color: red;
+ position: relative;
+}
+.box div:hover{
+    height: 550px;
+    width: 550px;
+    border: 2px solid black;
+    padding: 20px;
+    border-color: rgba(0, 0, 255, 0.549);
+}
+.box1:hover{
+    z-index: 1;
+   
+}
+.box2:hover{
+    z-index: 1;
+}
+.box3:hover{
+    z-index: 1;
+}

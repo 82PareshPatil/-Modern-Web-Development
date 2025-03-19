@@ -1,0 +1,23 @@
+body{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+h1{
+    font-size: large;
+}
+h2{
+    font-size: large;
+}
+.c{
+    
+    display: flex;
+    justify-content: center;
+  
+}
+img{
+    height: 350px;
+    width: 350px;
+}

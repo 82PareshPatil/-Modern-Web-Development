@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //for each
+        arr=[{name:"Paresh",marks:15},{name:"JK",marks:45},{name:"naresh",marks:95}]
+    arr.forEach(e => {
+            console.log(e.marks)
+        });
+
+    // map
+    a=[1,2,3,4,5]
+    let sq=a.map((e)=>{
+        return e*e
+    })
+
+    //filter
+    b=[1,2,3,4,5,6,7,8,9]
+    let m=b.filter((k)=>!(k%2==0)); 
+    
+    //REDUSE
+    let r=b.reduce((sum,l)=>{
+        return (sum+l)
+    })
+    //find maximum number in array using reduce method
+    arro=[45,89,66,32,78]
+    
+    let max=arro.reduce((result,e)=>{
+          if(e>result)
+          {
+            result = e
+          }
+          return result
+    })
+
+    let min=arro.reduce((result,e)=>{
+          if(e<result)
+          {
+            result = e
+          }
+          return result
+    })
+    //rest
+    function k(...arg)
+    {
+        let et=arg.reduce((ch,no)=>{
+            if(no<ch)
+        {
+            ch=no
+        }
+        return ch
+        })
+    }
+       </script>
+
+    
+
+</body>
+</html>

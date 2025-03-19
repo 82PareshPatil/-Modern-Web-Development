@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const student1 = {
+        //  name : "Paresh",
+        //  age : 20,
+        //  spi : 8.7
+        // };
+         console.log("Twitter post")
+         const posts={
+            username: "@82Paresh",
+            contant : "He is a computer engineering student.",
+            likes : "87.5k",
+            repost : 1253,
+            tags : ['ganesh','mahesh'] 
+         }
+         console.log(posts)
+         console.log()
+         //access the values
+
+// posts.username
+// ans. '@82Paresh'
+
+// posts["tags[0]"]
+// ans. undefined
+
+// posts["tags"]
+// ans. (2) ['ganesh', 'mahesh']
+
+// posts.tags[0]
+// ans. 'ganesh'
+        //  console.log("student datbase system.")
+        // num = prompt("Enter number of student")
+        // const students=[]
+        // for(let i=1;i<=num;i++)
+        // {
+        //    const student = {
+        //     name : prompt(`Enter ${i} student name: `),
+        //     age : prompt(`Enter ${i} student age: `),
+        //     spi : prompt(`Enter ${i} student spi: `)
+        // }
+        // students.push(student)
+        // };
+
+// //update value
+// students[1].spi=9.2
+// 9.2
+// //print value
+// console.log(students)
+// VM959:1 (3) [{…}, {…}, {…}]0: {name: 'paresh', age: '20', spi: '8.7'}1: {name: 'mahesh', age: '21', spi: 9.2}2: {name: 'ganesh', age: '20', spi: '36'}length: 3[[Prototype]]: Array(0)
+
+// // create a new value
+// students[0].gender="male"
+// 'male'
+// //print value
+// console.log(students)
+// VM1082:1 (3) [{…}, {…}, {…}]0: {name: 'paresh', age: '20', spi: '8.7', gender: 'male'}1: {name: 'mahesh', age: '21', spi: 9.2}2: {name: 'ganesh', age: '20', spi: '36'}length: 3[[Prototype]]: Array(0)
+
+// //delete key value
+// delete students[0].gender
+// true
+// // print value 
+// console.log(students)
+// VM1240:1 (3) [{…}, {…}, {…}]0: {name: 'paresh', age: '20', spi: '8.7'}1: {name: 'mahesh', age: '21', spi: 9.2}2: {name: 'ganesh', age: '20', spi: '36'}length: 3[[Prototype]]: Array(0)
+
+            
+
+    //    object in objects
+    const classroom={
+        paresh:{
+            age :20,
+            spi : 8.7
+        },
+        mahesh : { 
+            age :12,
+            spi : 8.7
+        }
+    };
+    
+    const n = parseInt(prompt("Enter number of employees")); // Convert to number
+const office = {};
+
+for (let i = 1; i <= n; i++) {
+    const employee = {
+        name: prompt(`Enter name of employee ${i}`),
+        age: parseInt(prompt(`Enter age of employee ${i}`)), // Convert to number
+        city: prompt(`Enter city of employee ${i}`),
+        salary: parseFloat(prompt(`Enter salary of employee ${i}`)) // Convert to number
+    };
+    
+    office[`employee${i}`] = employee; // Assign the employee object to the office object
+}
+
+console.log(office); // To verify the output
+    </script>
+</body>
+</html>

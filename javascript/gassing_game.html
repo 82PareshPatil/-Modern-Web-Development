@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let max=prompt("Enter a max number:")
+        let guess=Math.floor(Math.random()*max)+1
+        
+        while(true)
+    {
+        let random=prompt("Enter a random number")
+
+        if(random=='quit')
+    {
+        alert("Game Quit Succesfully!")
+        console.log("Game Quit Succesfully!")
+        break;
+    }
+    else if(random==guess)
+    {
+        alert("Congratulation you guess the right number and it was", guess)
+        console.log("Congratulation you guess the right number and it was", guess)
+        break;
+    }
+    else if(random>guess)
+    {
+        alert("the original number is smaller")
+        
+    }
+    else{
+        alert("the original number is larger")
+        
+    }
+    }
+    </script>
+</body>
+</html>

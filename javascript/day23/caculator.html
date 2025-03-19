@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="number" id="inpa">
+    
+        <p>+</p>
+        <input type="number" id="inpb">
+        <button id="sa" type="submit">submit</button>
+        <p>=</p>
+        <h1 id="ha"></h1>
+    </form>
+   
+   
+
+    <script>
+    let form=document.querySelector("form");
+   form.addEventListener("submit",function(event){
+    event.preventDefault();
+    let inpa=document.querySelector("#inpa");
+     let inpb=document.querySelector("#inpb");
+     let ha=document.querySelector("#ha")
+    
+    let a=parseInt(inpa.value);
+    let b=parseInt(inpb.value);
+    let c=a+b;
+    ha.innerText=c;
+   })
+    
+    </script>
+</body>
+</html>
