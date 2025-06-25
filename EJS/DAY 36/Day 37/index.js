@@ -20,7 +20,16 @@ app.get("/rendom",(req,res)=>{
     res.render("dice.ejs",{num});
 })
 app.get("/ig/:username",(req,res)=>{
-    let f = ["Paresh", "Mahesh", "sumit", "Kalpesh"]
-    let { username } = req.params;
-    res.render("instagram.ejs",{username , f});
+    
+     let {username}=req.params;
+     let instadata = require("./data.json");
+      const data = instadata[username];
+      if(data)
+      {
+        res.render("instagram.ejs", {data});
+      }
+      else{
+        res.render("Error.ejs");
+      }
+
 })

@@ -1,0 +1,101 @@
+{
+ "Paresh": {
+    "username": "wanderlust_jane",
+    "profile_image": "https://i.pravatar.cc/300?u=wanderlust_jane",
+    "followers": 2345,
+    "following": 310,
+    "posts": 12,
+    "post_list": [
+      {
+        "post_id": "p1",
+        "images": ["https://picsum.photos/id/1015/600/600"],
+        "likes": 502,
+        "comments": 45
+      },
+      {
+        "post_id": "p2",
+        "images": ["https://picsum.photos/id/1016/600/600"],
+        "likes": 348,
+        "comments": 30
+      }
+    ]
+  },
+ "Ramesh": {
+    "username": "tech_guru99",
+    "profile_image": "https://i.pravatar.cc/300?u=tech_guru99",
+    "followers": 7840,
+    "following": 112,
+    "posts": 21,
+    "post_list": [
+      {
+        "post_id": "p3",
+        "images": ["https://picsum.photos/id/1035/600/600"],
+        "likes": 1021,
+        "comments": 91
+      },
+      {
+        "post_id": "p4",
+        "images": ["https://picsum.photos/id/1033/600/600"],
+        "likes": 899,
+        "comments": 67
+      }
+    ]
+  },
+ "Gopal": {
+    "username": "minimal_mia",
+    "profile_image": "https://i.pravatar.cc/300?u=minimal_mia",
+    "followers": 1510,
+    "following": 287,
+    "posts": 9,
+    "post_list": [
+      {
+        "post_id": "p5",
+        "images": ["https://picsum.photos/id/1062/600/600"],
+        "likes": 278,
+        "comments": 20
+      }
+    ]
+  },
+ "Sumit": {
+    "username": "cityscapes_max",
+    "profile_image": "https://i.pravatar.cc/300?u=cityscapes_max",
+    "followers": 10920,
+    "following": 76,
+    "posts": 33,
+    "post_list": [
+      {
+        "post_id": "p6",
+        "images": ["https://picsum.photos/id/1043/600/600", "https://picsum.photos/id/1045/600/600"],
+        "likes": 1450,
+        "comments": 105
+      },
+      {
+        "post_id": "p7",
+        "images": ["https://picsum.photos/id/1041/600/600"],
+        "likes": 1320,
+        "comments": 92
+      }
+    ]
+  },
+ "Hitesh": {
+    "username": "nature.nina",
+    "profile_image": "https://i.pravatar.cc/300?u=nature.nina",
+    "followers": 3920,
+    "following": 312,
+    "posts": 18,
+    "post_list": [
+      {
+        "post_id": "p8",
+        "images": ["https://picsum.photos/id/1074/600/600"],
+        "likes": 650,
+        "comments": 43
+      },
+      {
+        "post_id": "p9",
+        "images": ["https://picsum.photos/id/1070/600/600"],
+        "likes": 701,
+        "comments": 51
+      }
+    ]
+  }
+}
