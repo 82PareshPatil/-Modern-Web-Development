@@ -7,9 +7,19 @@
 </head>
 <body>
     <script>
-        function person(){
-            
+        function person(name, age){
+              let pd={
+                name : name,
+                age : age,
+                talk(){
+                    console.log("hello", this.name)
+                },
+              }
+              return pd;
                  }
+
+
+            let p1 = person("paresh",21);
     </script>
 </body>
 </html>
