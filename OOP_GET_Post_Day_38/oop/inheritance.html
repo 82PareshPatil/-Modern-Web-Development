@@ -8,25 +8,26 @@
 <body>
     <script>
         class person{
-            constructor(name,age)
+            constructor(name,spi)
             {
-                this.name;
-                this.spi;
+                this.name=name;
+                this.spi=spi;
             }
             talk(){
                 console.log("hi, ",this.name);
             }
         }
         class Student extends person{
-            constructor(){
-                super(name)
+            constructor(name,spi){
+                super(name,spi);
             }
 
         }
         class Teacher extends person{
-            constructor(subject){
+            constructor(name,spi,subject){
+                      super(name,spi);
                 this.subject=subject;
-                super(name);
+          
             }
             talk(){
                 console.log("hi i am rma");
