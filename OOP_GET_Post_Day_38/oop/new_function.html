@@ -11,7 +11,9 @@
             this.name=name;
             this.age=age;
         }
-        
+        person.prototype.talk=()=>{
+            console.log("hello",this.name);
+        }
         let p1= new person("Paresh", 21);
     </script>
 </body>
