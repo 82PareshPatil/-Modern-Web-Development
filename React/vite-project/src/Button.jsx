@@ -1,8 +1,8 @@
 
-function Button(){
+function Button({btext}){
     let c="Paresh"
     return ( <button>
-        Hi Kaise ho! {c.toUpperCase()}
+        {btext}
     </button> )
 }
 export {Button};

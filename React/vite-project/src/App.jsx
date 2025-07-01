@@ -7,8 +7,8 @@ function App() {
 
   return(
     <div>
-      <Cart />
-        <Cart />
+      <Cart title="Interview" btext="See" img="/interview.png"/>
+        <Cart title="Lecture" btext="Enroll" img="/lecture.png"/>
        </div>
     );
 }

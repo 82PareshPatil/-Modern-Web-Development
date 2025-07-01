@@ -1,12 +1,12 @@
 import { Button } from "./Button";
 import "./cart.css"
-function Cart(){
+function Cart({title,btext,img}){
     return (
         <div className="cart">
-        <img src="/vite.svg" alt="" />
-      <h3>this is cart</h3>
+        <img src={img} alt="" />
+      <h3>{title}</h3>
       <p>Lorem ipsum dolor  amet consectetur adipisicing elit. Ratione, tempora.</p>
-      <Button></Button>
+      <Button btext={btext}/>
       </div>
     )
 }
