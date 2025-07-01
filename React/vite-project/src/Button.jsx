@@ -1,7 +1,8 @@
 
 function Button(){
-    return <button>
-        Hi Kaise ho!
-    </button>
+    let c="Paresh"
+    return ( <button>
+        Hi Kaise ho! {c.toUpperCase()}
+    </button> )
 }
 export {Button};
