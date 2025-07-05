@@ -1,0 +1,13 @@
+.price{
+    display: flex;
+    justify-content: center;   
+    background-color: rgba(231, 231, 64, 0.759);
+    border-radius: 0 0 25px 25px;
+}
+h3{
+    margin: 15px;
+}
+.no{
+    text-decoration-line: line-through;
+    font-weight: 100;
+}
