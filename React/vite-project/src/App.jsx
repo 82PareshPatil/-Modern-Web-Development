@@ -1,6 +1,7 @@
 import './App.css';
 import { Cart } from './cart';
 import { Tag } from './tag';
+import { Form } from './form';
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
 
       <Cart title="Interview" btext="See" img="/interview.png" features={{ a: "calling", b: "offline" }} price = {850}/>
       <Cart title="Lecture" btext="Enroll" img="/lecture.png" features={["coding", "maths", "oops"]} price={400} />
+      <Form />
     </div>
+    
   );
 }
 

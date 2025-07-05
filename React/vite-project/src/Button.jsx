@@ -1,8 +1,16 @@
+function ok(){
+    console.log("ok")
+}
 
 function Button({btext}){
    
-    return ( <button>
+    return (
+        <div>
+         <button onClick={ok}> 
         {btext}
-    </button> )
+    </button>
+    <p></p>
+    </div>
+)
 }
 export {Button};
