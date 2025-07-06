@@ -1,13 +1,19 @@
-function Count(){
-    let c=0;
-    function chage(){
-        c+=1;
-        console.log(c);
-      }
+import { useState } from "react"
 
-    return
-    (
-        <button onClick={change}>hi{c}</button>
-    )
+function Count(){
+
+   let [count , setCount]=useState(0);
+   let setcCount=() =>{
+              setCount(count+1);
+              console.log(count);
+   }
+    return (
+        <>
+        <h3>{count}</h3>
+    <button onClick={setcCount}>Increase Count</button>
+</>
+)
+
+    
 }
 export {Count}
