@@ -4,8 +4,13 @@ function Count(){
 
    let [count , setCount]=useState(0);
    let setcCount=() =>{
-              setCount(count+1);
-              console.log(count);
+              setCount(count=>{
+                return count +1;
+              });
+              setCount(count=>{
+                return count +1;
+              });
+         
    }
     return (
         <>
