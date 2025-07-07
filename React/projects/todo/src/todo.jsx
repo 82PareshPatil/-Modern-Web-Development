@@ -1,10 +1,11 @@
 import { useState } from "react";
 import './Todo.css';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import { v4 as uuidv4 } from 'uuid';
 
 function Todo() {
   const [inp, setInp] = useState("");
-  const [tasks, setTasks] = useState(["Do today"]);
+  const [tasks, setTasks] = useState([{task:"Do Today", id:uuidv4()}]);
 
   const handleInputChange = (e) => {
     setInp(e.target.value);
@@ -12,7 +13,7 @@ function Todo() {
 
   const addTask = () => {
     if (inp.trim() !== "") {
-      setTasks([...tasks, inp]);
+      setTasks([...tasks, { task: inp, id: uuidv4() }]);
       setInp("");
     }
   };
@@ -54,9 +55,9 @@ function Todo() {
         <hr />
 
         <ul className="task-list">
-          {tasks.map((task, index) => (
-            <li key={index} className="task-item">
-              <span className="task-text">{task}</span>
+          {tasks.map((t) => (
+            <li key={t.id} className="task-item">
+              <span className="task-text">{t.task}</span>
               <span className="coin-tag">🪙 30 Coins</span>
             </li>
           ))}
