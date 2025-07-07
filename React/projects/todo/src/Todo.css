@@ -1,0 +1,152 @@
+/* Reset and base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.app-container {
+  background: linear-gradient(to bottom, #d3f1ec, #fff);
+  min-height: 100vh;
+  padding: 20px;
+  color: #333;
+}
+
+/* Header Section */
+.top-section {
+  text-align: center;
+  background-color: #e9fdf2;
+  padding: 30px 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.coin-jar {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.user-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #666;
+}
+
+.tasks-done {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.coin-count {
+  font-size: 2.5rem;
+  color: #ffa500;
+  font-weight: bold;
+}
+
+.coin-label {
+  font-size: 0.95rem;
+  color: #777;
+}
+
+/* Tabs */
+.toggle-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  background-color: #f0f0f0;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  background-color: #a8d5ba;
+  color: #fff;
+}
+
+/* Input & Add Button */
+.input-section {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.input-section input {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  flex: 1 1 200px;
+}
+
+.input-section button {
+  background-color: #ffa500;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.input-section button:hover {
+  transform: scale(1.05);
+}
+
+/* Tasks */
+.task-header {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  background-color: #ffd89b;
+  padding: 15px 20px;
+  margin: 10px auto;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.task-item:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.task-text {
+  font-weight: 500;
+  color: #444;
+}
+
+.coin-tag {
+  background-color: #ffcb77;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
