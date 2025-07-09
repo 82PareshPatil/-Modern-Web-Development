@@ -18,6 +18,10 @@ function Todo() {
     }
   };
 
+  const deletei=()=>{
+    
+  }
+
   return (
     <div className="app-container">
       <div className="top-section">
@@ -58,6 +62,7 @@ function Todo() {
           {tasks.map((t) => (
             <li key={t.id} className="task-item">
               <span className="task-text">{t.task}</span>
+              <button onClick={deletei }>Delete</button>
               <span className="coin-tag">🪙 30 Coins</span>
             </li>
           ))}
