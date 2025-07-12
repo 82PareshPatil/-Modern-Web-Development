@@ -27,7 +27,7 @@ export default function Commentform({url}){
    }
 
     return(
-        <div>
+        <div className="comment">
             <Image url={url}/>
        
         <form onSubmit={formsubmit} className="form">

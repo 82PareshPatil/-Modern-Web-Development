@@ -1,6 +1,7 @@
+import "./image.css"
 export default function Image({url}){
     return(
-        <div>
+        <div className="image">
             <img src={url} alt="" />
         </div>
     )

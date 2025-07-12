@@ -1,0 +1,61 @@
+.image {
+  position: relative;
+ height: 150px;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  object-fit: cover;
+  border-radius: 16px;
+  transition: transform 0.4s ease;
+  filter: brightness(0.9);
+}
+
+/* Hover zoom effect */
+.image:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+}
+
+/* Hover overlay with button */
+.image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 16px;
+}
+
+.image:hover::after {
+  opacity: 1;
+}
+
+/* Play button or action on hover */
+.image::before {
+  content: '▶';
+  position: absolute;
+  font-size: 48px;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.image:hover::before {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
