@@ -1,13 +1,14 @@
 
 import './App.css'
-import Form from './form1'
+import Commentform from './commentform'
+
 
 function App() {
 
 
   return (
     <>
-    <Form />
+  <Commentform />
      </>
   )
 }
