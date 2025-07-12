@@ -5,7 +5,7 @@ import "./lotery.css"
 
 export default function Lotery({n,iswin}){
     let [ticket,setticket]=useState(ran(n));
-    let win=sum(ticket)===iswin;
+    let win=iswin(ticket);
     let refresh=()=>{
         setticket(ran(n))
     }
