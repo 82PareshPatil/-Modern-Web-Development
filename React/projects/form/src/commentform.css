@@ -1,0 +1,24 @@
+.form{
+    font-size: large;
+    font-family: 'Jerseyclub Grunge Bold-JR VK', Arial, sans-serif;
+}
+input{
+    border-radius: 25px;
+    height: 20px;
+    margin: 5px;
+    padding: 5px;
+}
+button{
+    background-color: #e50914;
+}
+@font-face {
+  font-family: 'Jerseyclub Grunge Bold-JR VK'; /* Choose your font family name */
+  src: url('path/to/your/fonts/JerseyclubGrunge-Bold.eot'); /* IE9 Compatibility */
+  src: url('path/to/your/fonts/JerseyclubGrunge-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('path/to/your/fonts/JerseyclubGrunge-Bold.woff2') format('woff2'), /* Modern Browsers */
+       url('path/to/your/fonts/JerseyclubGrunge-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('path/to/your/fonts/JerseyclubGrunge-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('path/to/your/fonts/JerseyclubGrunge-Bold.svg#JerseyclubGrunge-Bold') format('svg'); /* Legacy iOS */
+  font-weight: normal; /* Adjust if the font has different weights */
+  font-style: normal;  /* Adjust if the font has italic styles */
+}
