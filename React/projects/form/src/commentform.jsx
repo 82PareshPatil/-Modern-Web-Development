@@ -1,7 +1,8 @@
 import { useState } from "react"
 import "./commentform.css"
+import {Image} from "./image"
 
-export default function Commentform(){
+export default function Commentform({url}){
     let [formdata,setformdata]=useState({
         username : "",
         remark : "",
@@ -27,8 +28,7 @@ export default function Commentform(){
 
     return(
         <div>
-
-
+            <Image url={url}/>
        
         <form onSubmit={formsubmit} className="form">
             <label htmlFor="username">Username : </label>
@@ -40,7 +40,7 @@ export default function Commentform(){
             />
             <br />
 
-            <label htmlFor="username">Remark : </label>
+            <label htmlFor="remark">Remark : </label>
             <input type="text" 
             name="remark" 
             id="remark" 
@@ -49,7 +49,7 @@ export default function Commentform(){
             />
             <br />
 
-            <label htmlFor="username">Rating : </label>
+            <label htmlFor="rating">Rating : </label>
             <input type="number" 
             name="rating" 
             id="rating" 

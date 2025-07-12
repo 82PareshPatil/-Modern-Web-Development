@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-  <Commentform />
+  <Commentform url="/s.png"/>
      </>
   )
 }
