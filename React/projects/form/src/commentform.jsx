@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState , useEffect} from "react"
 import "./commentform.css"
 import {Image} from "./image"
 
@@ -16,6 +16,10 @@ export default function Commentform({url}){
         }
         )
     }
+
+    useEffect(function change(){
+        console.log("change");
+    },[formdata.username])
 
    let formsubmit = (e)=>{
     e.preventDefault();
