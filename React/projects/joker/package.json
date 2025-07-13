@@ -8,8 +8,8 @@
     "build": "vite build",
      "start": "vite preview",
     "lint": "eslint .",
-    "vercel-build": "npm install --legacy-peer-deps && vite build",
-    "preview": "vite preview"
+    "vercel-build": "npm install --legacy-peer-deps && vite build"
+    
   },
   "dependencies": {
     "@react-spring/web": "^10.0.1",
