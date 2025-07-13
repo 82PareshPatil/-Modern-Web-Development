@@ -20,7 +20,8 @@ export default function JokeSwiper() {
 
   const addNewJoke = async () => {
     const joke = await fetchJoke();
-    setJokes((prev) => [joke, ...prev.slice(0, 4)]);
+    setJokes((prev) => [joke, ...prev]);  // keep adding, never cut
+
   };
 
   useEffect(() => {
