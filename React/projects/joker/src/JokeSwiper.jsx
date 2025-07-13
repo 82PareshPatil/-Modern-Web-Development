@@ -2,36 +2,38 @@ import { useState, useEffect, useRef } from "react";
 import TinderCard from "react-tinder-card";
 import "./JokeSwiper.css";
 
-const emojis = ["😂", "🤣", "😹", "😆", "😜", "😛", "😅"];
-
 export default function JokeSwiper() {
   const [jokes, setJokes] = useState([]);
   const childRefs = useRef([]);
+  const [allJokes, setAllJokes] = useState([]);
 
-  const fetchJoke = async () => {
-    const res = await fetch("https://official-joke-api.appspot.com/random_joke");
+  const fetchLocalJokes = async () => {
+    const res = await fetch("/jokes.json"); // ✅ make sure jokes.json is in public/
     const data = await res.json();
-    return {
-      setup: data.setup,
-      punchline: data.punchline,
-      emoji: emojis[Math.floor(Math.random() * emojis.length)],
-    };
+    setAllJokes(data);
   };
 
-  const addNewJoke = async () => {
-    const joke = await fetchJoke();
-    setJokes((prev) => [...prev, joke]); // ⬅️ Add at end
+  const getRandomJoke = () => {
+    return allJokes[Math.floor(Math.random() * allJokes.length)];
+  };
+
+  const addNewJoke = () => {
+    const joke = getRandomJoke();
+    setJokes((prev) => [...prev, joke]); // ✅ last is topmost
   };
 
   useEffect(() => {
-    const loadInitial = async () => {
-      for (let i = 0; i < 5; i++) await addNewJoke();
-    };
-    loadInitial();
+    fetchLocalJokes();
   }, []);
 
-  const swiped = async () => {
-    await addNewJoke(); // ⬅️ Unlimited jokes!
+  useEffect(() => {
+    if (allJokes.length > 0) {
+      for (let i = 0; i < 5; i++) addNewJoke();
+    }
+  }, [allJokes]);
+
+  const swiped = () => {
+    addNewJoke();
   };
 
   const swipe = (dir) => {
@@ -54,12 +56,11 @@ export default function JokeSwiper() {
             <div
               className="card"
               style={{
-                "--i": index + 1,
-                zIndex: index + 1,
+                zIndex: index,
                 transform: `
-                  scale(${1 - (jokes.length - 1 - index) * 0.05})
-                  translateX(${(jokes.length - 1 - index) * 20}px)
-                  translateY(${(jokes.length - 1 - index) * 18}px)
+                  scale(${1 - (jokes.length - index - 1) * 0.05})
+                  translateX(${(jokes.length - index - 1) * 20}px)
+                  translateY(${(jokes.length - index - 1) * 18}px)
                 `,
               }}
             >
@@ -71,10 +72,13 @@ export default function JokeSwiper() {
         ))}
       </div>
 
-      {/* Swipe Buttons */}
       <div className="swipe-buttons">
-        <button onClick={() => swipe("left")} className="btn left">👈 Swipe Left</button>
-        <button onClick={() => swipe("right")} className="btn right">Swipe Right 👉</button>
+        <button onClick={() => swipe("left")} className="btn left">
+          👈 Swipe Left
+        </button>
+        <button onClick={() => swipe("right")} className="btn right">
+          Swipe Right 👉
+        </button>
       </div>
     </div>
   );
