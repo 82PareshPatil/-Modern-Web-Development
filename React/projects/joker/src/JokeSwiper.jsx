@@ -20,8 +20,7 @@ export default function JokeSwiper() {
 
   const addNewJoke = async () => {
     const joke = await fetchJoke();
-    setJokes((prev) => [joke, ...prev]);  // keep adding, never cut
-
+    setJokes((prev) => [...prev, joke]); // ⬅️ Add at end
   };
 
   useEffect(() => {
@@ -32,12 +31,13 @@ export default function JokeSwiper() {
   }, []);
 
   const swiped = async () => {
-    await addNewJoke();
+    await addNewJoke(); // ⬅️ Unlimited jokes!
   };
 
   const swipe = (dir) => {
-    if (childRefs.current[0]) {
-      childRefs.current[0].swipe(dir);
+    const topIndex = jokes.length - 1;
+    if (childRefs.current[topIndex]) {
+      childRefs.current[topIndex].swipe(dir);
     }
   };
 
@@ -54,12 +54,12 @@ export default function JokeSwiper() {
             <div
               className="card"
               style={{
-                "--i": jokes.length - index,
-                zIndex: jokes.length - index,
+                "--i": index + 1,
+                zIndex: index + 1,
                 transform: `
-                  scale(${1 - (jokes.length - index - 1) * 0.05})
-                  translateX(${(jokes.length - index - 1) * 20}px)
-                  translateY(${(jokes.length - index - 1) * 18}px)
+                  scale(${1 - (jokes.length - 1 - index) * 0.05})
+                  translateX(${(jokes.length - 1 - index) * 20}px)
+                  translateY(${(jokes.length - 1 - index) * 18}px)
                 `,
               }}
             >
