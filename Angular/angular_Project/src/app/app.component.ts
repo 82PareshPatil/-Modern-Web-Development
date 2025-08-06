@@ -13,12 +13,17 @@ import { ProfileComponent } from './profile/profile.component';
 })
 export class AppComponent {
   title = 'angular_Project';
+    name1:string="Paresh"
   name ="Angular"
  clickfun(){
   this.alertfun();
+     let num:string="new number"
  }
   alertfun(){
     alert("Don't Click");
   }
+  sum(a:number,b:number){
+    console.log(a+b);
+    }
 
 }
