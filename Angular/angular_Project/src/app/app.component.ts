@@ -14,4 +14,11 @@ import { ProfileComponent } from './profile/profile.component';
 export class AppComponent {
   title = 'angular_Project';
   name ="Angular"
+ clickfun(){
+  this.alertfun();
+ }
+  alertfun(){
+    alert("Don't Click");
+  }
+
 }
