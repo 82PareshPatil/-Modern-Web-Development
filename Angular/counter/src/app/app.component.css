@@ -1,0 +1,15 @@
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 20px;
+}
+.btn:hover{
+    background-color: rgba(157, 166, 173, 0.788);
+    border-color: white;
+}
