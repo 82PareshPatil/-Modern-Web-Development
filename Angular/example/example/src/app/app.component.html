@@ -1,4 +1,15 @@
 <h1>New File</h1>
 <app-login></app-login>
+
 <button class="btn" name="me" (click)="event($event)">Click</button>
-<input type="text" (input)="inputevent($event)">
+
+<hr>
+
+<h1>User name: {{ display }}</h1>
+<input [value]="na" type="text" (input)="inputevent($event)" >
+<button (click)="showname()">get</button>
+<button (click)="setname()">set</button>
+
+<hr>
+
+<app-template-variable></app-template-variable>
