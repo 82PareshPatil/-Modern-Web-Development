@@ -9,6 +9,7 @@ import { TemplateVariableComponent } from './template-variable/template-variable
   imports: [LoginComponent,TemplateVariableComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
+  // styles:['h1{background-color:red}']
 })
 export class AppComponent {
   title = 'example';
@@ -20,7 +21,7 @@ export class AppComponent {
     console.log((e.target as Element).className)
     console.log((e.target as HTMLButtonElement).name);
   }
-  inputevent(e:any){
+  another(e:any){
     this.na=(e.target as HTMLInputElement).value;
  
   }
@@ -30,4 +31,13 @@ export class AppComponent {
   setname(){
     this.na="Paresh"
   }  
+  toglediv2=true;
+  displayname:boolean=true;
+   toggle(){
+    this.displayname=!this.displayname
+   }
+   newtogle(){
+    this.toglediv2=!this.toglediv2;
+   }
+
 }

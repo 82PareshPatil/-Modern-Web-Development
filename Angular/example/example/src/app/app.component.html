@@ -6,10 +6,27 @@
 <hr>
 
 <h1>User name: {{ display }}</h1>
-<input [value]="na" type="text" (input)="inputevent($event)" >
+<!-- <input [value]="na" type="test" (input)="another($event)" placeholder="name" > -->
 <button (click)="showname()">get</button>
 <button (click)="setname()">set</button>
 
 <hr>
 
 <app-template-variable></app-template-variable>
+<hr>
+@if(displayname){
+<div></div>
+    <div style="width: 100px; height: 100px; background-color: aquamarine; margin: auto;"></div>
+}
+
+<button (click)="toggle()">Toggle</button>
+<hr>
+<button (click)="newtogle()">{{toglediv2?"change in green":"change in red"}}</button>
+@if(toglediv2)
+{
+    <div style="width: 100px; height: 100px; background-color: red;"></div>
+}
+@else {
+        <div style="width: 100px; height: 100px; background-color: green;"></div>
+
+}
