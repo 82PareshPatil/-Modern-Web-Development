@@ -6,27 +6,82 @@
 <hr>
 
 <h1>User name: {{ display }}</h1>
-<!-- <input [value]="na" type="test" (input)="another($event)" placeholder="name" > -->
+<!-- Uncomment if you want real-time input -->
+<!-- <input [value]="na" type="text" (input)="another($event)" placeholder="name" > -->
 <button (click)="showname()">get</button>
 <button (click)="setname()">set</button>
 
 <hr>
 
 <app-template-variable></app-template-variable>
-<hr>
-@if(displayname){
-<div></div>
-    <div style="width: 100px; height: 100px; background-color: aquamarine; margin: auto;"></div>
-}
 
+<hr>
+
+<!-- Conditional block with @if syntax -->
+@if(displayname) {
+  <div style="width: 100px; height: 100px; background-color: aquamarine; margin: auto;"></div>
+}
 <button (click)="toggle()">Toggle</button>
-<hr>
-<button (click)="newtogle()">{{toglediv2?"change in green":"change in red"}}</button>
-@if(toglediv2)
-{
-    <div style="width: 100px; height: 100px; background-color: red;"></div>
-}
-@else {
-        <div style="width: 100px; height: 100px; background-color: green;"></div>
 
+<hr>
+
+<button (click)="newtogle()">
+  {{ toglediv2 ? "change in green" : "change in red" }}
+</button>
+
+@if(toglediv2) {
+  <div style="width: 100px; height: 100px; background-color: red;"></div>
+} @else {
+  <div style="width: 100px; height: 100px; background-color: green;"></div>
+}
+
+<hr>
+
+<!-- Color buttons -->
+<button (click)="chnagecl(1)">red</button>
+<button (click)="chnagecl(2)">green</button>
+<button (click)="chnagecl(3)">yellow</button>
+<button (click)="chnagecl(4)">pink</button>
+
+<!-- Input box to type color number -->
+<input type="text" (input)="colorchange($event)" placeholder="Enter 1-5" />
+
+<!-- Color boxes based on color1 value -->
+@if(color1 == 1) {
+  <div style="width: 100px; height: 100px; background-color: red;"></div>
+} @else if(color1 == 2) {
+  <div style="width: 100px; height: 100px; background-color: green;"></div>
+} @else if(color1 == 3) {
+  <div style="width: 100px; height: 100px; background-color: yellow;"></div>
+} @else if(color1 == 4) {
+  <div style="width: 100px; height: 100px; background-color: pink;"></div>
+} @else {
+  <div style="width: 100px; height: 100px; background-color: black;"></div>
+}
+
+
+
+<hr>
+<h1 style="margin: auto;">Switch Case</h1>
+<button (click)="swchange('red')">red</button>
+<button (click)="swchange('green')">green</button>
+<button (click)="swchange('blue')">blue</button>
+<button (click)="swchange('yellow')">yellow</button>
+<input type="text" placeholder="Enter a color" (input)="newcolor($event)">
+@switch (cs) {
+    @case("red"){
+     <div style="width: 100px;height: 100px;background-color: rgb(255, 0, 0);margin: auto;"></div>
+    }
+    @case("green"){
+     <div style="width: 100px;height: 100px;background-color: rgb(72, 255, 0);margin: auto;"></div>
+    }
+    @case("blue"){
+     <div style="width: 100px;height: 100px;background-color: rgb(55, 0, 255);margin: auto;"></div>
+    }
+    @case("yellow"){
+     <div style="width: 100px;height: 100px;background-color: rgb(251, 255, 0);margin: auto;"></div>
+    }
+    @default{
+     <div style="width: 100px;height: 100px;background-color: rgb(0, 0, 0);margin: auto;"></div>
+    }
 }
