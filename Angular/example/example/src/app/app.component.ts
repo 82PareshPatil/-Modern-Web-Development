@@ -11,4 +11,13 @@ import { LoginComponent } from './login/login.component';
 })
 export class AppComponent {
   title = 'example';
+  event(e:MouseEvent){
+    console.log("click!",e.type)
+    console.log(e.target)
+    console.log((e.target as Element).className)
+    console.log((e.target as HTMLButtonElement).name);
+  }
+  inputevent(e:any){
+    console.log((e.target as HTMLInputElement).value)
+  }
 }
