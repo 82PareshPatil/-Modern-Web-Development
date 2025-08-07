@@ -10,6 +10,13 @@ import { TemplateVariableComponent } from './template-variable/template-variable
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  arr=["Paresh","Mahesh","Ganesh","naresh"]
+  student=[
+    {name:'Anil',age:'21',email:'anil78@gmail.com'},
+    {name:'Mayank',age:'25',email:'Mayank@gmail.com'},
+    {name:'Mohan',age:'28',email:'mohan78@gmail.com'},
+    {name:'Vaidha',age:'30',email:'vaidha78@gmail.com'},
+  ]
   title = 'example';
   display = '';
   na = '';
@@ -65,5 +72,9 @@ export class AppComponent {
   newcolor(e: Event){
        this.cs=(e.target as HTMLInputElement).value;
     }
+    
 
 }
+
+
+
