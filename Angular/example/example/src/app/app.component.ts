@@ -11,7 +11,8 @@ import { timeInterval, timeout } from 'rxjs';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  arr=["Paresh","Mahesh","Ganesh","naresh"]
+  // arr=["Paresh","Mahesh","Ganesh","naresh"]
+  arr=[""]
   student=[
     {name:'Anil',age:'21',email:'anil78@gmail.com'},
     {name:'Mayank',age:'25',email:'Mayank@gmail.com'},
@@ -116,6 +117,8 @@ export class AppComponent {
   }
   oa=signal(1);
   
+
+
 }
 
 

@@ -122,3 +122,17 @@
 }
 
 <button (click)="this.oa.set(this.oa()+1)">Increment</button>
+<hr>
+<h3>Contextual Variable</h3>
+@for(arra of arr;track arra){
+ 
+ @if($odd){
+<h2 style="color: bisque;">{{arra}}</h2>
+ }
+ @else {
+  <h2>{{arra}}</h2>
+ }
+}
+@empty {
+  <h2>No data available</h2>
+}
