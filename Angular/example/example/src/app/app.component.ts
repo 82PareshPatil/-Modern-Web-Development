@@ -2,17 +2,17 @@ import { Component, computed, effect, signal, WritableSignal } from '@angular/co
 import { LoginComponent } from './login/login.component';
 import { TemplateVariableComponent } from './template-variable/template-variable.component';
 import { timeInterval, timeout } from 'rxjs';
-
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [LoginComponent, TemplateVariableComponent],
+  imports: [FormsModule,LoginComponent, TemplateVariableComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  // arr=["Paresh","Mahesh","Ganesh","naresh"]
-  arr=[""]
+  arr=["Paresh","Mahesh","Ganesh","naresh"]
+  // arr=[""]
   student=[
     {name:'Anil',age:'21',email:'anil78@gmail.com'},
     {name:'Mayank',age:'25',email:'Mayank@gmail.com'},
@@ -64,7 +64,7 @@ export class AppComponent {
     }
   }
 
-  // ✅ FIXED: Now this updates the color based on typed value
+  //  FIXED: Now this updates the color based on typed value
   colorchange(e: Event) {
     const numberval = parseInt((e.target as HTMLInputElement).value);
     this.chnagecl(numberval);
@@ -116,9 +116,7 @@ export class AppComponent {
     this.ox.set(100);
   }
   oa=signal(1);
-  
-
-
+  name="hey"
 }
 
 

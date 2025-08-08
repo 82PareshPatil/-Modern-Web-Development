@@ -124,15 +124,19 @@
 <button (click)="this.oa.set(this.oa()+1)">Increment</button>
 <hr>
 <h3>Contextual Variable</h3>
-@for(arra of arr;track arra){
- 
- @if($odd){
-<h2 style="color: bisque;">{{arra}}</h2>
- }
- @else {
-  <h2>{{arra}}</h2>
- }
-}
-@empty {
+@for (arra of arr; track arra) {
+  
+  @if ($odd) {
+    <h2 style="color: bisque;">{{ arra }}</h2>
+  }
+  @else {
+    <h2>{{ arra }}</h2>
+  }
+
+} @empty {
   <h2>No data available</h2>
 }
+<hr>
+<h3>Form Modules</h3>
+<input type="text" [(ngModel)]="name" placeholder="new">
+<h2>{{name}}</h2>
