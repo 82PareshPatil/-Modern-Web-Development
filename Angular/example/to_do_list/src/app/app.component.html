@@ -19,3 +19,31 @@
 <hr>
 <h2>component directive</h2>
 <h3 *ngIf="show">hide</h3>
+<hr>
+<h2>Ng Looping</h2>
+<ul>
+  <li *ngFor="let x of database">{{x.name}} , {{x.age}}</li>
+</ul>
+<hr>
+<h2>Ng If</h2>
+
+<div *ngIf="login else ielse">
+<a href="">logout</a>
+</div>
+<ng-template #ielse>
+  <a href="">login</a>
+</ng-template>
+<button (click)="next()">next</button>
+<hr>
+<h3>Ng Switching</h3>
+<button (click)="cgcolor('red')">red</button>
+<button (click)="cgcolor('green')">green</button>
+<button (click)="cgcolor('yellow')">yellow</button>
+<button (click)="cgcolor('blue')">blue</button>
+<div [ngSwitch]="color">
+  <div *ngSwitchCase="'red'" style="width: 100px; height: 100px; background-color: rgb(222, 135, 135);"></div>
+  <div *ngSwitchCase="'green'" style="width: 100px; height: 100px; background-color: rgb(163, 222, 135);"></div>
+  <div *ngSwitchCase="'yellow'" style="width: 100px; height: 100px; background-color: rgb(222, 221, 135);"></div>
+  <div *ngSwitchCase="'blue'" style="width: 100px; height: 100px; background-color: rgb(135, 136, 222);"></div>
+  <div *ngSwitchDefault="">No color </div>
+</div>

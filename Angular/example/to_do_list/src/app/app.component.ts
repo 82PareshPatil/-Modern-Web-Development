@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault, NgTemplateOutlet } from '@angular/common';
+import { isNgTemplate } from '@angular/compiler';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,FormsModule,NgIf],
+  imports: [RouterOutlet,FormsModule,NgIf,NgFor,NgSwitch,NgSwitchCase,NgSwitchDefault],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -27,9 +28,29 @@ cgbg() {
   this.bgcolor = this.bgcolor === "black" ? "white" : "black";
 }
  // component directive
-show=true
+show=true;
 
+database=[
+  {
+     name:"Paresh",
+     age:21
+  },
+  {
+     name:"Mahesh",
+     age:21
+  },
+  {
+     name:"Ramesh",
+     age:21
+  }
+]
+login=false;
 
-
-
+next(){
+  this.login=!this.login
+}
+color="black";
+cgcolor(val:string){
+this.color=val;
+}
 }
