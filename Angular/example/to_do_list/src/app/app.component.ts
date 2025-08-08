@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,FormsModule],
+  imports: [RouterOutlet,FormsModule,NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -19,4 +20,16 @@ export class AppComponent {
   delet(tl:number){
     this.todo=this.todo.filter((item)=>item.id!=tl)
   }
+
+  //dynamic style
+bgcolor="black"
+cgbg() {
+  this.bgcolor = this.bgcolor === "black" ? "white" : "black";
+}
+ // component directive
+show=true
+
+
+
+
 }
