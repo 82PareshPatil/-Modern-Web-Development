@@ -1,6 +1,7 @@
 import { Component, computed, effect, signal, WritableSignal } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { TemplateVariableComponent } from './template-variable/template-variable.component';
+import { timeInterval, timeout } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -80,10 +81,22 @@ export class AppComponent {
       console.log(strname);
      this.username=strname;
     }
+   displayhead=false;
     constructor(){
       effect(()=>{
         console.log(this.count());
         console.log(this.g());
+        if(this.oa()==2)
+        {
+           this.displayhead=true;
+          setInterval(()=>{
+         this.displayhead=false;
+          },2000)
+      
+        }
+        else{
+      this.displayhead=false;
+        }
       })
     }
      count: WritableSignal <number | string > = signal<number | string >(10);
@@ -101,7 +114,8 @@ export class AppComponent {
     console.log(this.oz())
     this.ox.set(100);
   }
-
+  oa=signal(1);
+  
 }
 
 

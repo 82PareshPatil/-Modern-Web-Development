@@ -114,3 +114,11 @@
 <hr>
 <h2>computed signals</h2>
 <button (click)="chnage()">chnage</button>
+<hr>
+<h2>Effects</h2>
+<h3>{{oa()}}</h3>
+@if(displayhead){
+<h3 >Hi</h3>
+}
+
+<button (click)="this.oa.set(this.oa()+1)">Increment</button>
