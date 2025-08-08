@@ -72,7 +72,11 @@ export class AppComponent {
   newcolor(e: Event){
        this.cs=(e.target as HTMLInputElement).value;
     }
-    
+     username:string="";
+    getname(strname:string){
+      console.log(strname);
+     this.username=strname;
+    }
 
 }
 

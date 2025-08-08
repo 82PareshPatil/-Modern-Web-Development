@@ -84,7 +84,7 @@
     @default{
      <div style="width: 100px;height: 100px;background-color: rgb(0, 0, 0);margin: auto;"></div>
     }
-    
+  
 }
 <hr>
 <h1>For Loop</h1>
@@ -94,7 +94,8 @@
 <hr>
 <h1>for objects</h1>
 @for(i of student;track i;let id=$index){
-   <h3>{{id}} {{i.name}} {{i.age}} {{i.email}}</h3>
+   <h3>{{id}} {{i.email}}</h3>
+   <button (click)="getname(i.name)">Get Name</button>
 
 }
-
+   <h3>{{ username }}</h3>
