@@ -23,6 +23,7 @@ export class AppComponent {
          }
          else if(val=="plus"){
           this.count=this.count+1;
+          console.log()
          }
          else{
           this.count=0;

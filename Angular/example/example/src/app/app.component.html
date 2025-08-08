@@ -4,7 +4,6 @@
 <button class="btn" name="me" (click)="event($event)">Click</button>
 
 <hr>
-
 <h1>User name: {{ display }}</h1>
 <!-- Uncomment if you want real-time input -->
 <!-- <input [value]="na" type="text" (input)="another($event)" placeholder="name" > -->
@@ -96,6 +95,22 @@
 @for(i of student;track i;let id=$index){
    <h3>{{id}} {{i.email}}</h3>
    <button (click)="getname(i.name)">Get Name</button>
-
+   
 }
-   <h3>{{ username }}</h3>
+ 
+<h3>{{ username }}</h3>
+<hr>
+<h2 style="margin: auto;">Signals</h2>
+<h3>{{count()}}</h3> 
+
+<button (click)="updatename()">Change in to the name</button>
+<hr>
+<h2>count using signal</h2>
+<h3>
+{{g()}}
+</h3>
+<button (click)="this.g.set(this.g()+1)">Increment</button>
+<button (click)="this.g.set(this.g()-1)">Decrement</button>
+<hr>
+<h2>computed signals</h2>
+<button (click)="chnage()">chnage</button>

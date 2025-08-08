@@ -13,7 +13,6 @@ export class TemplateVariableComponent {
     getname(val:string){
       this.email=val;
     }
-    se(){
-      this.setname="Prakash123@gmail.com"
-    }
+    
+    
 }

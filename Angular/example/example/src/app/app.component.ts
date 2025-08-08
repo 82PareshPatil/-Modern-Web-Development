@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, effect, signal, WritableSignal } from '@angular/core';
 import { LoginComponent } from './login/login.component';
 import { TemplateVariableComponent } from './template-variable/template-variable.component';
 
@@ -20,7 +20,10 @@ export class AppComponent {
   title = 'example';
   display = '';
   na = '';
+   
+ 
 
+    x= 20;
   event(e: MouseEvent) {
     console.log("click!", e.type)
     console.log(e.target)
@@ -77,8 +80,29 @@ export class AppComponent {
       console.log(strname);
      this.username=strname;
     }
+    constructor(){
+      effect(()=>{
+        console.log(this.count());
+        console.log(this.g());
+      })
+    }
+     count: WritableSignal <number | string > = signal<number | string >(10);
+  updatename(){
+      this.count.set("Hello");
+        
+    }
+ g=signal(10);
+   
+//  computed signals
+  ox=signal(10);
+  oy=signal(20);
+  oz=computed(()=>this.ox()+this.oy());
+  chnage(){
+    console.log(this.oz())
+    this.ox.set(100);
+  }
 
 }
 
 
-
+ 
