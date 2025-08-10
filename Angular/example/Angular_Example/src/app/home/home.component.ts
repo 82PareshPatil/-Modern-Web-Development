@@ -10,6 +10,7 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+  
   constructor(private route:Router){}
 profilefun(name:string){
     this.route.navigate(['/profile'],{queryParams:{uname:name}})

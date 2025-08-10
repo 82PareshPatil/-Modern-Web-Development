@@ -1,1 +1,5 @@
-<p>instagram works!</p>
+<h1>This is instagram</h1>
+<h3>Users</h3>
+@for(user of users;track user){
+    <li><a href="/user/{{user.id}}/{{user.name}}/{{user.add}}">{{user.name}}</a></li>
+}
