@@ -5,7 +5,7 @@ for(var i=0;i<3;i++)
     {
         printnum =function()
         {
-           console.log(i)
+          return i;
         }
     }
 }
