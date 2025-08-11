@@ -1,0 +1,130 @@
+<p>inventory-list works!</p>
+<!-- apps/mobi-fix-pro-ui/src/app/master/inventory/inventory-list.component.html -->
+<div class="p-3">
+  <!-- header -->
+  <div class="row align-items-center mb-2">
+    <div class="col-6">
+      <div class="d-flex align-items-center">
+        <!-- logo placeholder (replace path with your asset path) -->
+        <img src="assets/global-assets/mobi-fix-pro-ui/mobi-office-ui/logo.svg" alt="Mobi" style="height:34px;margin-right:10px" />
+        <div class="heading text-dark-5-gray">Leave Summary Report</div>
+      </div>
+    </div>
+
+    <div class="col-6 text-end">
+      <div class="d-inline-block me-2">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Search Here.."
+          aria-label="search"
+          (input)="onSearch($any($event.target).value)"
+          style="min-width:250px; background:transparent; border:1px solid rgba(255,255,255,0.04); color:var(--text)"
+        />
+      </div>
+
+      <div class="d-inline-block">
+        <div class="segmented" role="tablist" style="display:inline-flex">
+          <button type="button" class="btn-sm-outlined-primary" [class.active]="selectedSegment==='summary'" (click)="changeSegment('summary')">Summary</button>
+          <button type="button" class="btn-sm-outlined-primary" [class.active]="selectedSegment==='dept'" (click)="changeSegment('dept')">By Dept</button>
+          <button type="button" class="btn-sm-outlined-primary" [class.active]="selectedSegment==='emp'" (click)="changeSegment('emp')">By Emp</button>
+          <button type="button" class="btn-sm-outlined-primary" [class.active]="selectedSegment==='monthly'" (click)="changeSegment('monthly')">Monthly</button>
+          <button type="button" class="btn-sm-outlined-primary" [class.active]="selectedSegment==='custom'" (click)="changeSegment('custom')">Custom</button>
+        </div>
+      </div>
+
+      <button class="btn-sm-filled-primary ms-2" (click)="onAddEntry()">Add</button>
+      <button class="btn-sm-outlined-primary ms-2" (click)="exportCSV()">Download</button>
+    </div>
+  </div>
+
+  <!-- filters -->
+  <div class="row mb-3">
+    <div class="col-md-3 col-sm-6">
+      <label class="small-text text-dark-3-gray">Select Department</label>
+      <select class="form-control" [(ngModel)]="selectedDept" (change)="onDeptChange()">
+        <option value="">All Departments</option>
+        <option *ngFor="let d of departments" [value]="d">{{ d }}</option>
+      </select>
+    </div>
+
+    <div class="col-md-3 col-sm-6">
+      <label class="small-text text-dark-3-gray">Select Employee</label>
+      <select class="form-control" [(ngModel)]="selectedEmp" (change)="applyFilters()">
+        <option value="">All Employees</option>
+        <option *ngFor="let e of employees" [value]="e">{{ e }}</option>
+      </select>
+    </div>
+
+    <div class="col-md-2 col-sm-6">
+      <label class="small-text text-dark-3-gray">Start Date</label>
+      <input class="form-control" type="date" [(ngModel)]="startDate" (change)="applyFilters()" />
+    </div>
+
+    <div class="col-md-2 col-sm-6">
+      <label class="small-text text-dark-3-gray">End Date</label>
+      <input class="form-control" type="date" [(ngModel)]="endDate" (change)="applyFilters()" />
+    </div>
+
+    <div class="col-md-2 col-sm-12 d-flex align-items-end justify-content-end">
+      <div>
+        <button class="btn-sm-filled-primary" (click)="applyFilters()">Go</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- table -->
+  <div class="row">
+    <div class="col-12">
+      <div class="common-table-container card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <div class="text-dark-3-gray">Leave Summary Report</div>
+          <div class="text-dark-3-gray"> {{ startDate || '01/04/2025' }} - {{ endDate || '30/04/2025' }}</div>
+        </div>
+
+        <div class="table-scroll-x table-container">
+          <table class="dynamic-table width-100">
+            <thead class="sticky-header">
+              <tr class="table_header_row">
+                <th style="width:70px">#Emp Code</th>
+                <th (click)="onSort('name')" style="cursor:pointer">Name</th>
+                <th>Department</th>
+                <th class="text-end" (click)="onSort('opening')" style="cursor:pointer">Opening</th>
+                <th class="text-end" (click)="onSort('debit')" style="cursor:pointer">Debit</th>
+                <th class="text-end" (click)="onSort('credit')" style="cursor:pointer">Credit</th>
+                <th class="text-end" (click)="onSort('balance')" style="cursor:pointer">Balance</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let row of visibleRows; trackBy: trackByCode" class="table_body_row">
+                <td class="text-dark-3-gray">{{ row.empCode }}</td>
+                <td>{{ row.name }}</td>
+                <td class="text-dark-3-gray">{{ row.department }}</td>
+                <td class="text-end">{{ row.opening }}</td>
+                <td class="text-end">{{ row.debit }}</td>
+                <td class="text-end">{{ row.credit }}</td>
+                <td class="text-end">{{ row.balance }}</td>
+              </tr>
+              <tr *ngIf="visibleRows.length === 0">
+                <td colspan="7" class="text-center text-dark-3-gray">No records found</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mt-2 small-text text-dark-3-gray">Showing {{ visibleRows.length }} rows</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- drawer template -->
+  <ng-template #drawerTemplate>
+    <div class="p-3">
+      <h4 class="text-dark-3-gray">Add Entry (Demo)</h4>
+      <p class="text-dark-3-gray">This drawer is wired to SideNavService. Replace with your add/edit component.</p>
+      <button class="btn-sm-filled-primary" (click)="onCloseDrawer(true)">Save</button>
+      <button class="btn-sm-outlined-primary ms-2" (click)="onCloseDrawer(false)">Close</button>
+    </div>
+  </ng-template>
+</div>

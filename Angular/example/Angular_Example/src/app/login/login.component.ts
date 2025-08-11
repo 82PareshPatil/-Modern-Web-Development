@@ -1,14 +1,17 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
   name=new FormControl();
   pass=new FormControl();
+  pagechange(){
+    console.log(this.name.value," ", this.pass.value);
+  }
 }

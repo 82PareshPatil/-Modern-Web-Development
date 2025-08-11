@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-12">
+    <div class="d-flex align-items-center justify-content-between">
+      <h1 class="text-dark-5-gray heading">Asset</h1>
+      <button class="btn-sm-filled-primary" matRipple (click)="onAddAsset(0, 0)">Add</button>
+    </div>
+  </div>
+  <div class="col-12 mt-3 p-0"></div>
+  <div class="col-12">
+    @if (mainList.length) {
+      <div class="hierarchy-section">
+        @for (item of mainList; track item) {
+          <div [ngTemplateOutlet]="nestedTemplate" [ngTemplateOutletContext]="{ item: item }"></div>
+        }
+      </div>
+    }
+  </div>
+</div>
+
+<ng-template #nestedTemplate let-templateItem="item">
+  <div
+    class="item"
+    [ngClass]="{ 'bg-light-3-primary': templateItem.IsExpanded }"
+    [ngStyle]="{
+      'margin-left': templateItem.treeDepth > 1 ? '33px' : '',
+      'border-left': templateItem.treeDepth > 1 ? '1px solid var(--primary-dark-3)' : '',
+    }">
+    <div class="item__left ps-2" (click)="templateItem?.ChildList?.length ? (templateItem.IsExpanded = !templateItem.IsExpanded) : ''">
+      @if (templateItem?.ChildList?.length) {
+        <mat-icon [@indicatorRotate]="templateItem?.IsExpanded ? 'expanded' : 'collapsed'" class="text-dark-5-gray"> keyboard_arrow_down</mat-icon>&nbsp;
+      }
+      <span class="text-dark-5-gray">{{ templateItem?.Name }}</span>
+      @if (templateItem.LocationName || templateItem.AssetTypeName) {
+        <span class="text-dark-3-gray ps-2 fs-14"
+          >(
+
+          @if (templateItem.LocationName) {
+            Location : <span class="text-primary">{{ templateItem.LocationName || "-" }}</span> ,
+          }
+
+          @if (templateItem.AssetTypeName) {
+            AssetType : <span class="text-primary">{{ templateItem.AssetTypeName || "-" }}</span>
+          }
+
+          )</span
+        >
+      }
+    </div>
+    <div class="item__right">
+      <div class="item__right-info"></div>
+      <div class="d-flex action">
+        <!-- @if (templateItem.isActionAllowed) { -->
+        <!-- Actions -->
+        <mat-icon mat-icon-button #optionMenusTrigger="matMenuTrigger" class="text-primary" matTooltip="Actions" (onMenuOpen)="onOpenActions(templateItem)" [matMenuTriggerFor]="matActionOptions"
+          >more_vert</mat-icon
+        >
+        <mat-menu #matActionOptions="matMenu" xPosition="after" (closed)="onSelectAction(templateItem)" [hasBackdrop]="true" backdropClass="option-panel-backdrop-class">
+          @if (optionMenusTrigger.menuOpen) {
+            <mobi-office-lib-mat-option-drop-down
+              [optionList]="actionOptions"
+              [(model)]="selectedActionID"
+              [isMultipleSelected]="false"
+              [isSortBySelected]="false"
+              [isSearchable]="false"
+              [isClearable]="false"
+              [isShowArrows]="false"
+              [triggerElement]="optionMenusTrigger"
+              customClass=""
+              label="Actions"></mobi-office-lib-mat-option-drop-down>
+          }
+        </mat-menu>
+        <!-- } -->
+      </div>
+    </div>
+  </div>
+  @if (templateItem?.ChildList?.length) {
+    @if (templateItem?.IsExpanded) {
+      @for (child of templateItem?.ChildList; track child) {
+        <div
+          class="child-part"
+          [ngStyle]="{
+            'margin-left': templateItem.treeDepth > 1 ? '33px' : '',
+            'border-left': templateItem.treeDepth > 1 ? '1px solid var(--primary-dark-3)' : '',
+          }">
+          <div [ngTemplateOutlet]="nestedTemplate" [ngTemplateOutletContext]="{ item: child }" class="bg-light-3-primary"></div>
+        </div>
+      }
+    }
+  }
+</ng-template>
+
+<!-- Asset Drawer -->
+<ng-template #assetDrawerTemplate>
+  <mobi-office-asset-insert (closeEmitter)="onCloseDrawer($event)" [assetID]="currentSelectedAsset.ID" [parentAssetID]="currentSelectedAsset.ParentAssetID"></mobi-office-asset-insert>
+</ng-template>
